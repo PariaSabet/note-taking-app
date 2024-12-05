@@ -20,16 +20,6 @@ A modern, tag-based note-taking application built with React, TypeScript, and Re
 - React Select
 - Vite
 
-## Getting Started
-
-### Prerequisites
-
-- Node.js (v14 or higher)
-- npm or yarn
-
-### Installation
-
-1. Clone the repository 
-
-
 ![CleanShot 2024-12-04 at 19 20 14@2x](https://github.com/user-attachments/assets/34a1be70-ea1a-44f2-acd1-07fc1630dc71)
+![CleanShot 2024-12-04 at 19 31 47@2x](https://github.com/user-attachments/assets/b97aa3ba-d16d-4316-a9a5-124713a2dac0)
+
