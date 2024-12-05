@@ -19,7 +19,7 @@ export function Note({ onDelete }: NoteProps) {
           {note.tags.length > 0 && (
             <Stack gap={1} direction="horizontal" className="flex-wrap">
               {note.tags.map((tag) => (
-                <Badge key={tag.id} className="text-truncate">
+                <Badge key={tag.id} className="text-truncate bg-light">
                   {tag.label}
                 </Badge>
               ))}
@@ -46,7 +46,9 @@ export function Note({ onDelete }: NoteProps) {
           </Stack>
         </Col>
       </Row>
-      <ReactMarkdown>{note.markdown}</ReactMarkdown>
+      <div className="markdown-preview">
+        <ReactMarkdown>{note.markdown}</ReactMarkdown>
+      </div>
     </>
   );
 }
