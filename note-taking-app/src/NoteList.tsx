@@ -13,6 +13,7 @@ import ReactSelect from "react-select";
 import { Tag, Note } from "./App";
 import { useMemo, useState } from "react";
 import styles from "./NoteList.module.css";
+import "./styles/global.css";
 
 type SimplifiedNote = {
   tags: Tag[];
@@ -66,10 +67,11 @@ export function NoteList({
         <Col xs="auto">
           <Stack gap={2} direction="horizontal">
             <Link to="/new">
-              <Button variant="primary">Create</Button>
+              <Button className="custom-button">Create</Button>
             </Link>
             <Button
-              variant="outline-secondary"
+              className="custom-button"
+              style={{ background: 'linear-gradient(145deg, #6c757d, #5a6268)' }}
               onClick={() => setEditTagsModalIsOpen(true)}
             >
               Edit Tags
@@ -143,17 +145,17 @@ function NoteCard({ id, title, tags }: SimplifiedNote) {
       <Card.Body>
         <Stack
           gap={2}
-          className="align-items-center justify-content-center h-100"
+          className={`align-items-start justify-content-start h-100 ${styles.cardContent}`}
         >
           <span className="fs-5">{title}</span>
           {tags.length > 0 && (
             <Stack
               gap={1}
               direction="horizontal"
-              className="justify-content-center flex-wrap"
+              className={`justify-content-start flex-wrap ${styles.cardTags}`}
             >
               {tags.map((tag) => (
-                <Badge key={tag.id} className="text-truncate">
+                <Badge key={tag.id} className="text-truncate bg-light">
                   {tag.label}
                 </Badge>
               ))}

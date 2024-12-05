@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Special+Elite&display=swap');
+
+body {
+  background-color: #2c3338;
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 20px 20px;
+  min-height: 100vh;
+  font-family: 'Special Elite', monospace;
+  color: #4a4a4a;
+}
+
+h1, h2, h3, h4, h5, h6, .form-label {
+  color: #e1e1e1;
+  font-family: 'Special Elite', monospace;
+}
+
+.form-control {
+  background: white;
+  border: none;
+  border-radius: 4px;
+  padding: 7px;
+  font-family: 'Special Elite', monospace;
+  background-size: 100% 1.5rem;
+  line-height: 1.5rem;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
+}
+
+.form-control:focus {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.custom-button {
+  font-family: 'Special Elite', monospace;
+  background: white;
+  border: none;
+  border-radius: 10px;
+  color: #4a4a4a;
+  padding: 10px 25px;
+  font-weight: 600;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.5);
+  background-image: linear-gradient(#f8f9fa, #e9ecef);
+}
+
+.custom-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.custom-button:active {
+  transform: translateY(1px);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.badge {
+  font-family: 'Special Elite', monospace;
+  background-color: #f8f9fa;
+  color: #4a4a4a;
+  border: 1px solid #dee2e6;
+  padding: 0.5em 0.8em
+}
+.select__control {
+  font-family: 'Special Elite', monospace;
+  background: white;
+  border: none;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
+}
+
+.select__menu {
+  font-family: 'Special Elite', monospace;
+}
+
+.select__option {
+  font-family: 'Special Elite', monospace;
+} 

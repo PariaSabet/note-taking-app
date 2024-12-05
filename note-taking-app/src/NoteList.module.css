@@ -1,9 +1,42 @@
 .card {
-  transition: translate ease-in-out 100ms, box-shadow ease-in-out 100ms;
+  background: white;
+  background-image: linear-gradient(#e1e1f1 1px, transparent 1px);
+  background-size: 100% 1.5rem;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
+  border-radius: 4px;
+  position: relative;
+  min-height: 200px;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  font-family: 'Special Elite', monospace;
 }
 
-.card:hover,
-.card:focus {
-  translate: 0 -5px;
-  box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2);
+.card::before {
+  content: '';
+  width: 2px;
+  height: 100%;
+  position: absolute;
+  left: 3rem;
+  top: 0;
+  background-color: #ff9e9e;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.16);
+}
+
+.cardContent {
+  padding-left: 4rem;
+  padding-top: 0.25rem;
+}
+
+.card span {
+  color: #4a4a4a;
+  line-height: 1.5rem;
+  display: block;
+  margin-top: 11px;
+}
+
+.cardTags {
+  margin-top: 0.5rem;
 }
