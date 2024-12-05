@@ -8,6 +8,7 @@ import { v4 as uuidV4 } from "uuid";
 import { NoteList } from "./NoteList";
 import { NoteLayout } from "./NoteLayout";
 import { Note } from "./Note";
+import { EditNote } from "./EditNote";
 export type Note = {
   id: string;
 } & NoteData;
@@ -57,12 +58,41 @@ function App() {
     setTags((prev) => [...prev, tag]);
   }
 
+  function onUpdateNote(id: string, { tags, ...data }: NoteData) {
+    setNotes(prevNotes => prevNotes.map(note => {
+      if (note.id === id) {
+        return { ...note, ...data, tagIds: tags.map(tag => tag.id) }
+      } else {
+        return note
+      }
+    }))
+  }
+
+  function onDeleteNote(id: string) {
+    setNotes((prevNotes) => prevNotes.filter((note) => note.id !== id));
+  }
+
+  function updateTag(id: string, label: string) {
+    setTags((prevTags) => prevTags.map((tag) => (tag.id === id ? { ...tag, label } : tag)));
+  }
+
+  function deleteTag(id: string) {
+    setTags((prevTags) => prevTags.filter((tag) => tag.id !== id));
+  }
+
   return (
     <Container className="my-4">
       <Routes>
         <Route
           path="/"
-          element={<NoteList availableTags={tags} notes={notesWithTags} />}
+          element={
+            <NoteList
+              availableTags={tags}
+              notes={notesWithTags}
+              onUpdateTag={updateTag}
+              onDeleteTag={deleteTag}
+            />
+          }
         />
         <Route
           path="/new"
@@ -75,8 +105,17 @@ function App() {
           }
         />
         <Route path="/:id" element={<NoteLayout notes={notesWithTags} />}>
-          <Route index element={<Note />} />
-          <Route path="edit" element={<h1>Edit Note</h1>} />
+          <Route index element={<Note onDelete={onDeleteNote} />} />
+          <Route
+            path="edit"
+            element={
+              <EditNote
+                onSubmit={onUpdateNote}
+                onAddTag={addTag}
+                availableTags={tags}
+              />
+            }
+          />
         </Route>
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
