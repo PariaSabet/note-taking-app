@@ -3,6 +3,7 @@ import { Row } from "react-bootstrap";
 import { useNote } from "./NoteLayout";
 import { Link, useNavigate } from "react-router-dom";
 import ReactMarkdown from "react-markdown";
+import styles from "./App.module.css"
 
 type NoteProps = {
   onDelete: (id: string) => void;
@@ -12,7 +13,7 @@ export function Note({ onDelete }: NoteProps) {
   const note = useNote();
   const navigate = useNavigate();
   return (
-    <>
+    <div className={styles.card}>
       <Row className="align-items-center mb-4">
         <Col>
           <h1>{note.title}</h1>
@@ -49,6 +50,6 @@ export function Note({ onDelete }: NoteProps) {
       <div className="markdown-preview">
         <ReactMarkdown>{note.markdown}</ReactMarkdown>
       </div>
-    </>
+    </div>
   );
 }
